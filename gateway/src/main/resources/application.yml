@@ -1,0 +1,23 @@
+eureka:
+  client:
+    enabled: true
+    registerWithEureka: true
+    eureka-server-u-r-l-context: http://localhost:8761/eureka/
+
+server:
+  port: 8081
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: consumer
+          uri: lb://RIBBON-CONSUMER
+          predicates:
+            - Path=/consumer/**
+        - id: provider
+          uri: lb://RIBBON-PROVIDER
+          predicates:
+            - Path=/provider/**
+
