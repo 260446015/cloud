@@ -1,0 +1,10 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: oauth2
+
+logging:
+  level:
+    root: debug
